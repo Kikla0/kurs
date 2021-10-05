@@ -1,11 +1,10 @@
 import requests as req
 import sys
+import datetime
+from datetime import timedelta
 
 def weather(key, city, date):
-    if date != 0:
-        r = req.get(f'https://api.weatherapi.com/v1/history.json?key={key}&q={city}&dt={date}')
-    else:
-        r = req.get(f'https://api.weatherapi.com/v1/forecast.json?key={key}&q={city}&days=1&aqi=no&alerts=no')
+    r = req.get(f'https://api.weatherapi.com/v1/history.json?key={key}&q={city}&dt={date}')
     r = r.json()
     will_rain = r['forecast']['forecastday'][0]['day']['totalprecip_mm']
     if will_rain == 0:
@@ -36,7 +35,7 @@ else:
 if len(sys.argv) >= 4:
     date = sys.argv[3]
 else:
-    date = 0
+    date = datetime.date.today() + timedelta(days=1)
 
 with open('data.txt', 'r') as file:
     for line in file.readlines():

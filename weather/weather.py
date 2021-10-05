@@ -9,9 +9,10 @@ def weather(key, city, date):
     r = r.json()
     will_rain = r['forecast']['forecastday'][0]['day']['totalprecip_mm']
     if will_rain == 0:
-        will_rain = "It won't rain"
+        will_rain = "No"
     else:
-        will_rain = "It will rain"
+        will_rain = "Yes"
+    date = r['forecast']['forecastday'][0]['date']
     avg_temp = r['forecast']['forecastday'][0]['day']['avgtemp_c']
     min_temp = r['forecast']['forecastday'][0]['day']['mintemp_c']
     max_temp = r['forecast']['forecastday'][0]['day']['maxtemp_c']

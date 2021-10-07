@@ -1,11 +1,13 @@
 import requests as req
 import sys
+import pprint
 import datetime
 from datetime import timedelta
 
 def weather(key, city, date):
     r = req.get(f'https://api.weatherapi.com/v1/history.json?key={key}&q={city}&dt={date}')
     r = r.json()
+    pprint.pprint(r)
     will_rain = r['forecast']['forecastday'][0]['day']['totalprecip_mm']
     if will_rain == 0:
         will_rain = "No"

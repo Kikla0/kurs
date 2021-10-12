@@ -35,7 +35,7 @@ class Weather:
                 city2, date2, rain, avg, min, max, hum, wind = line.split(',')
                 if city == city2:
                     if date == date2:
-                        xists = 1
+                        exists = 1
                         break
                 
             if exists == 1:

@@ -30,3 +30,34 @@ my_dog = Animal() # tworzenie obiekty
 my_dog.print_details() # uruchomienie metody print_details
 print(my_dog.name) # dostęp do pola name obiektu  my_dog
 my_dog.age = 3 # aktualizacja pola age obiektu my_dog
+
+# dziedziczenie i polimorfizm
+
+# dziedziczenie
+class A:
+    LICZBA = 20
+    def a(self):
+        print(self.LICZBA)
+
+class B(A):
+    pass
+
+b = B()
+
+b.a()
+
+# polimorfizm
+class A:
+    LICZBA = 20
+    def a(self):
+        print(self.LICZBA)
+
+class B(A):
+    def a(self):
+        print("Metoda klasy B")
+
+b = B()
+
+print(b.LICZBA)
+
+b.a()
